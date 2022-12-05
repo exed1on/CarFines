@@ -33,23 +33,30 @@
             <input type="checkbox" value="remember-me"> Remember me
         </label>
     </div>
-    <button id="butAuth" class="w-100 btn btn-lg btn-primary" type="submit" onclick="CheckLogin()">Sign in</button>
+    <button id="butAuth" class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
     <p class="mt-5 mb-3 text-muted">© 2022</p>
-    <div th:each="el : ${users}" class="alert alert-info mt-2">
-        <h3 id="user_id" th:text="${el.id}"/>
-        <p id="user_password" th:text="${el.password}"/>
-        <p><input type="button" value="Проверить" onload="CheckLogin()"></p>
-    </div>
+<!--    <div th:each="el : ${users}" class="alert alert-info mt-2">-->
+<!--        <h3 id="user_id" th:text="${el.id}"/>-->
+<!--        <p id="user_password" th:text="${el.password}"/>-->
+<!---->
+<!--    </div>-->
 </form>
 </main>
 
-<script>-
-     function CheckLogin() {
-        let user_id = document.getElementById("user_id").value;
-        let user_password = document.getElementById("user_").value;
-        console.log("login", user_id);
-    }
+<script   th:inline="javascript" >
+    let user_ID;
+    let user_Password;
+    /*<![CDATA[*/
+    /*[# th:each="el : ${users}"]*/
+   user_ID =String(/*[[${el.id}]]*/);user_Password = String(/*[[${el.password}]]*/);
+    console.log(user_ID,user_Password);
+    /*[/]*/
+    /*]]>*/
+
 </script>
+
+
+
 <!--<script>-->
 <!--    function Authorize() {-->
 <!--        let login = document.getElementById("floatingInput").value;-->
