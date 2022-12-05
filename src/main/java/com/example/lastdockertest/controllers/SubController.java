@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class SubController {
     @GetMapping(value = "/view")
-    public String home(String id, String password, Model model)
+    public String home(Model model)
     {
         model.addAttribute("title","Sign In");
-        return "sign";
+        return "view";
     }
 }
