@@ -29,7 +29,7 @@ public class DemoController {
 
         model.addAttribute("users",users);
         System.out.println(user);
-        return "sign_success";
+        return "redirect";
     }
 //    @GetMapping("/view/{id}")
 //    public String insert(@PathVariable("id") String id,
