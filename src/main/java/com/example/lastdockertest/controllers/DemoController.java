@@ -24,7 +24,10 @@ public class DemoController {
         return "sign";
     }
     @PostMapping("/sign")
-    public String submitForm(@ModelAttribute("user") User user) {
+    public String submitForm(Model model, @ModelAttribute("user") User user) {
+        Iterable<User> users=signRepository.findAll();
+
+        model.addAttribute("users",users);
         System.out.println(user);
         return "sign_success";
     }

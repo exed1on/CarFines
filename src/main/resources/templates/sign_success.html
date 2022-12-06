@@ -5,7 +5,38 @@
     <title>Title</title>
 </head>
 <body>
-<p th:text="'id: ' + ${user.id}" />
-<p th:text="'password: ' + ${user.password}" />
 </body>
+<script   th:inline="javascript" >
+        let user_ID;
+        let user_Password;
+        /*<![CDATA[*/
+
+        let enteredID=String(/*[[${user.id}]]*/);
+        let enteredPass=String(/*[[${user.password}]]*/);
+        let logged=false;
+        console.log("ENTERED", enteredID,enteredPass);
+      //  window.alert(enteredID);
+
+        /*]]>*/
+
+        /*<![CDATA[*/
+
+        /*[# th:each="el : ${users}"]*/
+        user_ID = String(/*[[${el.id}]]*/);
+        console.log(enteredID==user_ID);
+        user_Password = String(/*[[${el.password}]]*/);
+        if(enteredID==user_ID&&enteredPass==user_Password)
+        {
+            console.log("logged in");
+            logged=true;
+            window.location.replace("http://localhost:8080/fines")
+        }
+        else
+        {
+           if(!logged) window.location.replace("http://localhost:8080/sign")
+        }
+        console.log(user_ID, user_Password);
+        /*[/]*/
+        /*]]>*/
+</script>
 </html>
